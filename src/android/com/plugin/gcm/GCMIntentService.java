@@ -99,21 +99,12 @@ public class GCMIntentService extends GCMBaseIntentService {
 		}
 		
 		String message = extras.getString("message");
-		
-		NotificationCompat.Builder normal = buildNormal("This is an Expanded Layout Notification.");
-    		NotificationCompat.InboxStyle big = new NotificationCompat.InboxStyle(normal);
 
-    		// summary is below the action
-    		big.setSummaryText(extras.getString("title"));
-    		// Lines are above the action and below the title
-    		big.addLine("This is the first line").addLine("The second line")
-            	.addLine("The third line").addLine("The fourth line");
-
-    		NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    		//NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
     		
     		//manager.notify(Constants.NOTIFY_ID, big.build());
 		
-		/*NotificationCompat.Builder mBuilder =
+		NotificationCompat.Builder mBuilder =
 			new NotificationCompat.Builder(context)
 				.setDefaults(defaults)
 				.setSmallIcon(context.getApplicationInfo().icon)
@@ -131,12 +122,12 @@ public class GCMIntentService extends GCMBaseIntentService {
 			mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText("<missing message content>"));
 			mBuilder.setContentText("<missing message content>");
 			mBuilder.setSummaryText("<missing message content>");
-		}*/
+		}
 
-		/*String msgcnt = extras.getString("msgcnt");
+		String msgcnt = extras.getString("msgcnt");
 		if (msgcnt != null) {
 			mBuilder.setNumber(Integer.parseInt(msgcnt));
-		}*/
+		}
 		
 		int notId = 0;
 		
@@ -150,9 +141,18 @@ public class GCMIntentService extends GCMBaseIntentService {
 			Log.e(TAG, "Number format exception - Error parsing Notification ID" + e.getMessage());
 		}
 		
+		//NotificationCompat.Builder normal = buildNormal("This is an Expanded Layout Notification.");
+    		NotificationCompat.InboxStyle big = new NotificationCompat.InboxStyle(mBuilder);
+
+    		// summary is below the action
+    		big.setSummaryText(extras.getString("title"));
+    		// Lines are above the action and below the title
+    		big.addLine("This is the first line").addLine("The second line")
+            	.addLine("The third line").addLine("The fourth line");
+		
 		//mNotificationManager.notify((String) appName, notId, mBuilder.build());
 		
-		manager.notify((String) appName, notId, big.build());
+		mNotificationManager.notify((String) appName, notId, big.build());
 	}
 	
 	private static String getAppName(Context context)
