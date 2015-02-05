@@ -145,10 +145,10 @@ public class GCMIntentService extends GCMBaseIntentService {
 		} catch (Exception e){}
     		
     		try{
-    			String[] list = extras.getStringArray("lines");
-    			for (String line : list) {
-    				big.addLine(line);
-			}
+    			int i = 0;
+    			while(true) {
+    				big.addLine(extras.getString("line"+i));
+    			}
 		} catch (Exception e){}
     		
     		// Lines are above the action and below the title
