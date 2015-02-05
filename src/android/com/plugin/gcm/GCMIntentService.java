@@ -142,7 +142,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     		// summary is below the action
     		big.setSummaryText(extras.getString("footer"));
     		
-    		ArrayList<String> list = extras.getStringArrayList("lines");
+    		String[] list = extras.getStringArray("lines");
     		
     		for (String line : list) {
     			big.addLine(line);
