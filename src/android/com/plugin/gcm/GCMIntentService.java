@@ -2,6 +2,7 @@ package com.plugin.gcm;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
