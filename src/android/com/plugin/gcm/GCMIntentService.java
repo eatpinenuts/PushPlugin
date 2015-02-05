@@ -137,12 +137,19 @@ public class GCMIntentService extends GCMBaseIntentService {
 		
 		//NotificationCompat.Builder normal = buildNormal("This is an Expanded Layout Notification.");
     		NotificationCompat.InboxStyle big = new NotificationCompat.InboxStyle(mBuilder);
-
+		
     		// summary is below the action
-    		big.setSummaryText(extras.getString("title"));
+    		big.setSummaryText(extras.getString("footer"));
+    		
+    		ArrayList<String> list = extras.getStringArrayList("lines");
+    		
+    		for (String line : list) {
+    			big.addLine(line);
+		}
+    		
     		// Lines are above the action and below the title
-    		big.addLine("This is the first line").addLine("The second line")
-            	.addLine("The third line").addLine("The fourth line");
+    		/*big.addLine("This is the first line").addLine("The second line")
+            	.addLine("The third line").addLine("The fourth line");*/
 		
 		//mNotificationManager.notify((String) appName, notId, mBuilder.build());
 		
