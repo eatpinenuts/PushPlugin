@@ -148,6 +148,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     			int i = 0;
     			while(true) {
     				big.addLine(extras.getString("line"+i));
+    				i++;
     			}
 		} catch (Exception e){}
     		
