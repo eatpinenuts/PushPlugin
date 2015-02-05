@@ -54,11 +54,6 @@ public class GCMIntentService extends GCMBaseIntentService {
 	public void onUnregistered(Context context, String regId) {
 		Log.d(TAG, "onUnregistered - regId: " + regId);
 	}
-	
-	@Override
-    	public void onDelete(int deleteCount) {
-        	Log.d(TAG, "onDelete - message deleted count: " + deleteCount);
-    	}
 
 	@Override
 	protected void onMessage(Context context, Intent intent) {
