@@ -116,10 +116,10 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setAutoCancel(true);
 		
 		if (message != null) {
-			mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(message))
+			mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(message));
 			mBuilder.setContentText(message);
 		} else {
-			mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText("<missing message content>"))
+			mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText("<missing message content>"));
 			mBuilder.setContentText("<missing message content>");
 		}
 
